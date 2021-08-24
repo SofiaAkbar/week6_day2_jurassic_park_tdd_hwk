@@ -13,4 +13,40 @@ Park.prototype.removeDinosaur = function(dinosaur){
     this.dinosaurs.splice(indexOfDinosaur, 1)
 };
 
+Park.prototype.findMostPopularDinosaur = function(){
+    let mostVisitors = this.dinosaurs[0];
+    for (dinosaur of this.dinosaurs){
+        if (dinosaur.guestsAttractedPerDay > mostVisitors.guestsAttractedPerDay) {
+            mostVisitors = dinosaur
+        }
+    }
+    return mostVisitors
+}
+
+Park.prototype.findBySpecies = function(species) {
+    results = [];
+    for (dinosaur of this.dinosaurs){
+        if (dinosaur.species == species){
+            results.push(dinosaur);
+        }
+    }
+    return results;
+}
+
+// Park.prototype.totalVisitors = function(dinosaur) {
+//     let total = 0;
+//     for (dinosaur of this.dinosaurs) {
+//         total += dinosaur.guestsAttractedPerDay;
+//     }
+//     return total
+// }
+
+// Park.prototype.totalVisitorsPerYear = function() {
+//     let totalVisitorsPerYear = 0;
+//     totalVisitorsPerYear = this.park.totalVisitors() * 365;
+//     return totalVisitorsPerYear
+// }
+
+
+
 module.exports = Park;
