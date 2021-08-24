@@ -39,12 +39,15 @@ Park.prototype.totalVisitors = function() {
         total += dinosaur.guestsAttractedPerDay;
     }
     return total
-}
+};
 
 Park.prototype.totalVisitorsPerYear = function() {
     return this.totalVisitors() * 365;
-}
+};
 
+Park.prototype.totalAnnualRevenue = function() {
+    return this.totalVisitorsPerYear() * this.ticketPrice;
+};
 
 
 module.exports = Park;

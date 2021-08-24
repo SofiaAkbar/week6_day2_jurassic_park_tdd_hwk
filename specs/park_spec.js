@@ -83,6 +83,14 @@ describe('Park', function() {
     assert.strictEqual(actual, 80*365);
   });
 
-  // it('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function() {
+    const dinosaur1 = new Dinosaur('t-rex', 'carnivore', 50);
+    park.addDinosaur(dinosaur1);
+    const dinosaur2 = new Dinosaur('triceratops', 'herbivore', 30);
+    park.addDinosaur(dinosaur2);
 
+    const actual = park.totalAnnualRevenue();
+    const expected = park.totalVisitorsPerYear() * park.ticketPrice 
+    assert.strictEqual(actual, expected)
+  });
 });
